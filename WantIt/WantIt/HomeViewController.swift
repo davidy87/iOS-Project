@@ -11,6 +11,7 @@ import UIKit
 class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var itemImage: UIImageView!
 }
 
 class HomeViewController: UIViewController {
