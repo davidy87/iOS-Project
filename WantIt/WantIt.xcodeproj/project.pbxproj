@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6326487824AEDFDE00D5790D /* PostViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326487724AEDFDE00D5790D /* PostViewController1.swift */; };
+		6326487A24AEDFFB00D5790D /* PostViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326487924AEDFFB00D5790D /* PostViewController2.swift */; };
+		634FCC4124AEE90800327341 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634FCC4024AEE90800327341 /* CategoryTableViewController.swift */; };
 		636557C524AAF19600CE73F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636557C424AAF19600CE73F1 /* AppDelegate.swift */; };
 		636557C724AAF19600CE73F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636557C624AAF19600CE73F1 /* SceneDelegate.swift */; };
 		636557C924AAF19600CE73F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636557C824AAF19600CE73F1 /* HomeViewController.swift */; };
@@ -15,11 +18,14 @@
 		636557D124AAF19700CE73F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636557D024AAF19700CE73F1 /* Assets.xcassets */; };
 		636557D424AAF19700CE73F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636557D224AAF19700CE73F1 /* LaunchScreen.storyboard */; };
 		638AF7B724AD977800317C02 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AF7B624AD977800317C02 /* UserViewController.swift */; };
-		63A8D31324AB2761008FFD64 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8D31224AB2761008FFD64 /* Item.swift */; };
+		6399369D24B276D6001EF2C6 /* ItemInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6399369C24B276D6001EF2C6 /* ItemInfoTableViewController.swift */; };
 		63A8D31524AB2C19008FFD64 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8D31424AB2C19008FFD64 /* ItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6326487724AEDFDE00D5790D /* PostViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostViewController1.swift; path = "/Users/david/Desktop/cs371l/iOS-Project/WantIt/WantIt/PostViewController1.swift"; sourceTree = "<absolute>"; };
+		6326487924AEDFFB00D5790D /* PostViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostViewController2.swift; path = "/Users/david/Desktop/cs371l/iOS-Project/WantIt/WantIt/PostViewController2.swift"; sourceTree = "<absolute>"; };
+		634FCC4024AEE90800327341 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		636557C124AAF19600CE73F1 /* WantIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WantIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636557C424AAF19600CE73F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636557C624AAF19600CE73F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +36,7 @@
 		636557D324AAF19700CE73F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636557D524AAF19700CE73F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638AF7B624AD977800317C02 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		63A8D31224AB2761008FFD64 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		6399369C24B276D6001EF2C6 /* ItemInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoTableViewController.swift; sourceTree = "<group>"; };
 		63A8D31424AB2C19008FFD64 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,9 +74,12 @@
 				636557C624AAF19600CE73F1 /* SceneDelegate.swift */,
 				636557C824AAF19600CE73F1 /* HomeViewController.swift */,
 				63A8D31424AB2C19008FFD64 /* ItemViewController.swift */,
+				6399369C24B276D6001EF2C6 /* ItemInfoTableViewController.swift */,
 				638AF7B624AD977800317C02 /* UserViewController.swift */,
+				6326487724AEDFDE00D5790D /* PostViewController1.swift */,
+				6326487924AEDFFB00D5790D /* PostViewController2.swift */,
+				634FCC4024AEE90800327341 /* CategoryTableViewController.swift */,
 				636557CA24AAF19600CE73F1 /* Main.storyboard */,
-				63A8D31224AB2761008FFD64 /* Item.swift */,
 				636557D024AAF19700CE73F1 /* Assets.xcassets */,
 				636557D224AAF19700CE73F1 /* LaunchScreen.storyboard */,
 				636557D524AAF19700CE73F1 /* Info.plist */,
@@ -150,10 +159,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6326487A24AEDFFB00D5790D /* PostViewController2.swift in Sources */,
 				638AF7B724AD977800317C02 /* UserViewController.swift in Sources */,
-				63A8D31324AB2761008FFD64 /* Item.swift in Sources */,
+				6326487824AEDFDE00D5790D /* PostViewController1.swift in Sources */,
 				636557C924AAF19600CE73F1 /* HomeViewController.swift in Sources */,
+				6399369D24B276D6001EF2C6 /* ItemInfoTableViewController.swift in Sources */,
 				636557C524AAF19600CE73F1 /* AppDelegate.swift in Sources */,
+				634FCC4124AEE90800327341 /* CategoryTableViewController.swift in Sources */,
 				636557CF24AAF19600CE73F1 /* WantIt.xcdatamodeld in Sources */,
 				636557C724AAF19600CE73F1 /* SceneDelegate.swift in Sources */,
 				63A8D31524AB2C19008FFD64 /* ItemViewController.swift in Sources */,

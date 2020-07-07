@@ -7,49 +7,47 @@
 //
 
 import UIKit
+import CoreData
 
 class ItemViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var imagePageControl: UIPageControl!
-    @IBOutlet weak var itemInfoTableView: UITableView!
+    @IBOutlet weak var tableView: UIView!
     
     var frame = CGRect.zero
-    var items: [Item]!
+    var item: NSManagedObject!
     var delegate: UIViewController!
+    let segueIdentifier = "ItemInfoSegueIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePageControl.numberOfPages = items.count
-        setupScreens()
+//        imagePageControl.numberOfPages = items.count
+//        setupScreens()
 
         imageScrollView.delegate = self
     }
+
+//    func setupScreens() {
+//        for index in 0..<items.count {
+//            frame.origin.x = imageScrollView.frame.size.width * CGFloat(index)
+//            frame.size = imageScrollView.frame.size
+//
+//            let imageView = UIImageView(frame: frame)
+//            imageView.image = UIImage(named: items[index])
+//
+//            self.imageScrollView.addSubview(imageView)
+//        }
+//
+//        imageScrollView.contentSize = CGSize(width: (imageScrollView.frame.size.width * CGFloat(items.count)), height: imageScrollView.frame.size.height)
+//        imageScrollView.delegate = self
+//    }
     
-    func setupScreens() {
-        for index in 0..<items.count {
-            frame.origin.x = imageScrollView.frame.size.width * CGFloat(index)
-            frame.size = imageScrollView.frame.size
-            
-            let imageView = UIImageView(frame: frame)
-            imageView.image = UIImage(named: items[index])
-
-            self.imageScrollView.addSubview(imageView)
-        }
-
-        imageScrollView.contentSize = CGSize(width: (imageScrollView.frame.size.width * CGFloat(items.count)), height: imageScrollView.frame.size.height)
-        imageScrollView.delegate = self
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == segueIdentifier,
+            let nextVC = segue.destination as? ItemInfoTableViewController {
+            nextVC.item = item
+        }
     }
-    */
 
 }

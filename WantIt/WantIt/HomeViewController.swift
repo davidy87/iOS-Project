@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
@@ -14,32 +15,41 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var itemImage: UIImageView!
 }
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var itemTableView: UITableView!
     
+    let itemCellIdentifier = "ItemCell"
     let segueIdentifier = "ItemSegueIdentifier"
-    var items: [Item]!
+    var itemList: [NSManagedObject]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        itemTableView.delegate = self
+        itemTableView.dataSource = self
+        itemList = retrieveItems()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        itemList = retrieveItems()
+        itemTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return itemList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: segueIdentifier,
+            withIdentifier: itemCellIdentifier,
             for: indexPath as IndexPath
         ) as! ItemTableViewCell
         
-        let item = items[indexPath.row]
+        let item = itemList[indexPath.row]
         
-        cell.title.text = item.title
-        cell.price.text = String(item.price)
+        cell.title.text = item.value(forKey: "title") as? String
+        cell.price.text = "$ " + String(item.value(forKey: "price") as! Double)
         
         return cell
     }
@@ -48,10 +58,31 @@ class HomeViewController: UIViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func retrieveItems() -> [NSManagedObject] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+        var fetchedResults: [NSManagedObject]? = nil
+        
+        do {
+            try fetchedResults = context.fetch(request) as? [NSManagedObject]
+        } catch {
+            // If an error occurs...
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+
+        return (fetchedResults)!
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier,
-            let nextVC = segue.destination as? ItemViewController {
+            let nextVC = segue.destination as? ItemViewController,
+            let itemIndex = itemTableView.indexPathForSelectedRow?.row {
+            
             nextVC.delegate = self
+            nextVC.item = itemList[itemIndex]
         }
     }
 
